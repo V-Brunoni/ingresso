@@ -6,10 +6,15 @@ function comprar(){
     let quantidadeSuperior = parseInt(document.getElementById('qtd-superior').textContent);
     let quantidadeInferior = parseInt(document.getElementById('qtd-inferior').textContent);
 
+    if (quantidade <= 0) {
+        alert('A quantidade inserida é 0 ou negativa. Favor verifique!');
+        return;
+    }
+
     switch (tipoIngresso.value) {
         case 'pista':
             if(quantidade > quantidadePista){
-                alert('Quantidade informada acima do disponível!');
+                alert('Quantidade informada está maior do que o disponível!');
             } else {
                 quantidadePista = quantidadePista - quantidade;
                 document.getElementById('qtd-pista').textContent = quantidadePista;
@@ -18,7 +23,7 @@ function comprar(){
             break;
         case 'superior':
             if(quantidade > quantidadeSuperior){
-                alert('Quantidade informada acima do disponível!');
+                alert('Quantidade informada está maior do que o disponível!');
             } else {
                 quantidadeSuperior = quantidadeSuperior - quantidade;
                 document.getElementById('qtd-superior').textContent = quantidadeSuperior;
@@ -27,7 +32,7 @@ function comprar(){
             break;
         default:
             if(quantidade > quantidadeInferior){
-                alert('Quantidade informada acima do disponível!');
+                alert('Quantidade informada está maior do que o disponível!');
             } else {
                 quantidadeInferior = quantidadeInferior - quantidade;
                 document.getElementById('qtd-inferior').textContent = quantidadeInferior;
